@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class shop : MonoBehaviour
@@ -8,12 +9,16 @@ public class shop : MonoBehaviour
     public bool shopscreen = false;
     void Start()
     {
-        shopscreen = true;
+        shopscreen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void OnEnable()
+    {
+        shopscreen = true;
     }
 }
