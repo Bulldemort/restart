@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using AFPC;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Example of setup AFPC with Lifecycle, Movement and Overview classes.
@@ -66,6 +67,10 @@ public class Hero : MonoBehaviour {
 
         /* Control the health and shield recovery */
         lifecycle.Runtime();
+
+
+
+
     }
 
     private void FixedUpdate () {
@@ -106,4 +111,5 @@ public class Hero : MonoBehaviour {
         if (HUD) HUD.DamageFX();
         overview.Shake(0.75f);
     }
+ 
 }
