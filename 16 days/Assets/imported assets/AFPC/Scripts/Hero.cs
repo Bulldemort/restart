@@ -9,10 +9,10 @@ public class Hero : MonoBehaviour {
 
     /* UI Reference */
     public HUD HUD;
-
+    [SerializeField] public GameObject DS;
     /* Lifecycle class. Damage, Heal, Death, Respawn... */
     public Lifecycle lifecycle;
-
+    [SerializeField] public int cardboard;
     /* Movement class. Move, Jump, Run... */
     public Movement movement;
 
@@ -69,6 +69,7 @@ public class Hero : MonoBehaviour {
         lifecycle.Runtime();
 
 
+        
 
 
     }
@@ -92,6 +93,8 @@ public class Hero : MonoBehaviour {
 
         /* Camera following */
         overview.Follow (transform.position);
+        
+
     }
 
     private void ReadInput () {
@@ -111,5 +114,16 @@ public class Hero : MonoBehaviour {
         if (HUD) HUD.DamageFX();
         overview.Shake(0.75f);
     }
- 
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("enemy1"))
+        {
+            lifecycle.Damage(50f);
+
+        }
+
+    }
+
 }

@@ -4,6 +4,8 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Jobs;
+using System.Security.Cryptography.X509Certificates;
+using AFPC;
 
 public class UIcontroller : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class UIcontroller : MonoBehaviour
     public GameObject startmenu;
     public GameObject controlsScreen;
     public GameObject weaponShop;
-    
+    public Lifecycle lifecycle;
 
     void Start()
     {
@@ -74,5 +76,11 @@ public class UIcontroller : MonoBehaviour
         controlsScreen.SetActive(false);
         weaponShop.SetActive(false);
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("mainmenu");
+        lifecycle.die = false;
+    }
+
 }
 

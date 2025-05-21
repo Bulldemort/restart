@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4988104967132232083}
   m_Layer: 0
   m_Name: Picolabo
-  m_TagString: Untagged
+  m_TagString: enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,10 +50,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2047359046213428024, guid: f67710f01f6aae0409c6c8e8301b2674, type: 3}
   moveSpeed: 5
-  rotationSpeed: 5
-  stopDistance: 2
+  stoppingDistance: 2
   health: 10
-  anim: {fileID: 4988104967132232083}
+  lifecycle:
+    isDebugLog: 0
+    ID: AFPC
+    referenceHealth: 100
+    referenceShield: 100
+    DS: {fileID: 0}
+    die: 0
+  hero: {fileID: 0}
 --- !u!65 &541908329793610087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -100,7 +106,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 36
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!95 &4988104967132232083
 Animator:

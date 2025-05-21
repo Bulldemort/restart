@@ -122,6 +122,114 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &68662814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.53011227
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5594559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.88308424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5808028116043869077, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556112422878300008, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_Name
+      value: UIController (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556112422878300008, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8556112422878300008, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 68662816}
+  m_SourcePrefab: {fileID: 100100000, guid: 43ac0e62267ab1249bb1973e36ba0d4a, type: 3}
+--- !u!1 &68662815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8556112422878300008, guid: 43ac0e62267ab1249bb1973e36ba0d4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 68662814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &68662816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68662815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f0e788470d4e1841963025b8f1b0c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopscreen: 0
+  shop1: {fileID: 867256502}
+  shopmaps: {fileID: 469987946}
+  startmenu: {fileID: 2069021325}
+  controlsScreen: {fileID: 1002026300}
+  weaponShop: {fileID: 753051237}
+  lifecycle:
+    isDebugLog: 0
+    ID: AFPC
+    referenceHealth: 100
+    referenceShield: 100
+    DS: {fileID: 0}
+    die: 0
 --- !u!1 &469987946 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6381556359743106093, guid: 8262816a6b5faa34b8a63647a6281ef3,
@@ -1072,6 +1180,13 @@ MonoBehaviour:
   startmenu: {fileID: 2069021325}
   controlsScreen: {fileID: 1002026300}
   weaponShop: {fileID: 753051237}
+  lifecycle:
+    isDebugLog: 0
+    ID: AFPC
+    referenceHealth: 100
+    referenceShield: 100
+    DS: {fileID: 0}
+    die: 0
 --- !u!1001 &296083703347146501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1771,6 +1886,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 975416428}
   - {fileID: 634418416}
+  - {fileID: 68662814}
   - {fileID: 968357681}
   - {fileID: 1603516260498264831}
   - {fileID: 8563291184158015107}

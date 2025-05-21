@@ -18,13 +18,15 @@ namespace AFPC {
         private bool isHealthRecovery = true;
 	    public float referenceHealth = 100.0f;
 	    private float health = 1;
-	    private int healthRecoveryRate = 60;
+	    private int healthRecoveryRate = 0;
 	
         [Header("Shield")]
         private bool isShieldRecovery = true;
 	    public float referenceShield = 100.0f;
 	    private float shield = 1;
-	    private int shieldRecoveryRate = 60;
+	    private int shieldRecoveryRate = 20;
+        [SerializeField] public GameObject DS;
+
 
         private bool isFrenzy;
         private float frenzyThreshold = 20.0f;
@@ -33,7 +35,7 @@ namespace AFPC {
         private UnityAction healAction;
         private UnityAction damageAction;
         private UnityAction deathAction;
-
+        public bool die = false;
         /// <summary>
         /// Set maximum health and shield in the start.
         /// </summary>
@@ -214,6 +216,7 @@ namespace AFPC {
             health -= healthDamage;
             if (Mathf.Abs(health) < epsilon) {
                 Death ();
+                die = true;
             }
             damageAction?.Invoke();
             if (isDebugLog) Debug.Log (ID + ": Damaged: " + value);
@@ -280,6 +283,8 @@ namespace AFPC {
 		    SetMinimumHealthAndShield();
             deathAction?.Invoke();
             if (isDebugLog) Debug.Log (ID + ": Death");
+          
+
         }
 
         /// <summary>

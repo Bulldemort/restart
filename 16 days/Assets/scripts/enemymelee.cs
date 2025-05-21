@@ -1,64 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using AFPC;
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player; // Reference to the player's transform
-    public float moveSpeed = .0000001f; // Speed at which the object moves
-    public float rotationSpeed = 5f; // Speed at which the object rotates
-    public float stopDistance = 3f; // Distance at which the object stops moving
-    public float health = 10f;
-    
-    private float initialYPosition; // Stores the object's starting Y position
-    public Animator anim; 
-    void Start()
-    {
-        // Store the initial Y position to prevent vertical movement
-        initialYPosition = transform.position.y;
-    }
-
+    public Transform player;        
+    public float moveSpeed = 5f;    
+    public float stoppingDistance = 2f;  
+    public int health = 10;
+    public Lifecycle lifecycle;
+    public Hero hero;
     void Update()
     {
-        if (player == null)
+        if (player == null) return;
+
+       
+        Vector3 direction = player.position - transform.position;
+        direction.y = 0; // Optional: Keep movement on the horizontal plane
+
+        // Rotate to look at the player
+        if (direction != Vector3.zero)
         {
-            Debug.LogWarning("Player reference is missing!");
-            return;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
 
-        // Calculate direction towards the player, ignoring Y-axis movement
-        Vector3 direction = (player.position - transform.position).normalized;
-        direction.y = 0; // Prevent looking up or down
-
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        // Rotate towards the player while keeping upright
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        // Move towards the player while keeping the original Y position
-        if (distanceToPlayer > stopDistance)
+        
+        float distance = direction.magnitude;
+        /*
+        if (distance > stoppingDistance)
         {
-            Vector3 newPosition = transform.position + direction * moveSpeed * Time.deltaTime;
-            newPosition.y = initialYPosition; // Maintain original Y position
-            transform.position = newPosition;
+            Vector3 moveDir = direction.normalized;
+            transform.position += moveDir * moveSpeed * Time.deltaTime;
         }
-         if (distanceToPlayer <= stopDistance)
+        */
+        Vector3 moveDir = direction.normalized;
+        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        if (health <= 0)
         {
-            
-        }
-        if(health <= 0)
-        {
-          Destroy(gameObject);
+            Destroy(gameObject);
+            hero.cardboard = hero.cardboard + 15; 
         }
     }
-        void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PB"))
         {
-            // Check if the collided object has the tag "PB"
-            if (collision.gameObject.CompareTag("PB"))
-            {
-                health = health - 1f;
-            }
+            health = health - 1;
+
         }
-    
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            lifecycle.Damage(1f);
+            Debug.Log("damage");
+        }
+    }
+
 }

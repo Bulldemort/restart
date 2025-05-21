@@ -16,7 +16,9 @@ public class escape : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("mainmenu");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

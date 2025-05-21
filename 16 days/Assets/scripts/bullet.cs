@@ -17,6 +17,10 @@ public class bullet : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
         {
-           Destroy(gameObject);
+        if (collision.gameObject.CompareTag("enemy1"))
+        {
+            Debug.Log($"{gameObject.name} collided with Enemy1 and got destroyed.");
+            Destroy(gameObject);
         }
+    }
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PB
+  - enemy1
+  - 'deagle '
   layers:
   - Default
   - TransparentFX
